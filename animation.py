@@ -3,7 +3,7 @@ import time
 import sys
 
 
-def animate(text, speed=0.05):
+def animate(text, speed=0.04):
     for letter in text:
         sys.stdout.write(letter)
         sys.stdout.flush()
@@ -11,8 +11,16 @@ def animate(text, speed=0.05):
         
 def input_animation(text, speed=0.05):
     animate(text, speed)
-    return input("\n: ").strip()
+    return input("\n> ").strip()
         
-def clear():
-    time.sleep(1)
-    os.system("cls" if os.name == "nt" else "clear")
+def clear(speed=1):
+        time.sleep (speed)
+        os.system("clear")
+        
+def backstep(backward, speed=0.01):
+    time.sleep(0.30)
+    for b in backward:
+        print("\b \b", end="", flush = True)
+        time.sleep (speed)
+        
+    
